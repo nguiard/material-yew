@@ -49,7 +49,7 @@ macro_rules! component {
             #[doc = "[MWC Documentation](https://github.com/material-components/material-components-web-components/tree/master/packages/"$mwc_name")"]
             pub struct $comp;
        }
-        impl yew::BaseComponent for $comp {
+        impl yew::Component for $comp {
             type Message = ();
             type Properties = $props;
 
