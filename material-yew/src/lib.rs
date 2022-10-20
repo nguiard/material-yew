@@ -79,7 +79,7 @@ fn to_option_string(s: impl Display) -> Option<AttrValue> {
     if s.is_empty() {
         None
     } else {
-        Some(AttrValue::Owned(string_to_static_str(s)))
+        Some(AttrValue::Static(string_to_static_str(s)))
     }
 }
 
