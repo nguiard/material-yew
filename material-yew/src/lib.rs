@@ -70,12 +70,16 @@ fn bool_to_option(value: bool) -> Option<AttrValue> {
     value.then(|| AttrValue::Static("true"))
 }
 
+fn string_to_static_str(s: String) -> &'static str {
+    Box::leak(s.into_boxed_str())
+}
+
 fn to_option_string(s: impl Display) -> Option<AttrValue> {
     let s = s.to_string();
     if s.is_empty() {
         None
     } else {
-        Some(AttrValue::Owned(s))
+        Some(AttrValue::Owned(string_to_static_str(s)))
     }
 }
 
